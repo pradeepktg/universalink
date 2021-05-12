@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     return "<h1>Welcome to Universal Link - iOS<h1>"
 
-@app.route("/.well-known/<path:filename>", methods=['GET','POST'])
-def wellknown(filename):
+@app.route("/.well-known/apple-app-site-association", methods=['GET','POST'])
+def wellknown():
     return send_from_directory(directory=app.root_path + '/well-known/',
-                                                      filename=filename,
+                                                      filename='apple-app-site-association',
                                                       mimetype='application/json')
